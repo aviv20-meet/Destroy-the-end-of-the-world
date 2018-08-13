@@ -9,8 +9,8 @@ def player_stats():
         defence = 35
         hp_defence.append(hp)
         hp_defence.append(defence)
-        attack_one = 10
-        attack_two = 5
+        attack_1= 10
+        attack_2 = 5
         attacks.append(attack_1)
         attacks.append(attack_2)
 
@@ -19,8 +19,8 @@ def player_stats():
         defence = 20
         hp_defence.append(hp)
         hp_defence.append(defence)
-        attack_one = 7
-        attack_two = 3
+        attack_1 = 7
+        attack_2 = 3
         attacks.append(attack_1)
         attacks.append(attack_2)
     
@@ -29,8 +29,8 @@ def player_stats():
         defence = 10
         hp_defence.append(hp)
         hp_defence.append(defence)
-        attack_one = 4
-        attack_two = 1
+        attack_1 = 4
+        attack_2 = 1
         attacks.append(attack_1)
         attacks.append(attack_2)
 
@@ -49,8 +49,8 @@ def enemy_stats():
         hp_defence.append(defence)
         attack_one = 3
         attack_two = 1
-        attacks.append(attack_1)
-        attacks.append(attack_2)
+        attacks.append(attack_one)
+        attacks.append(attack_two)
 
     if his_level == 2:
         hp = 27
@@ -59,8 +59,8 @@ def enemy_stats():
         hp_defence.append(defence)
         attack_one = 7
         attack_two = 3
-        attacks.append(attack_1)
-        attacks.append(attack_2)
+        attacks.append(attack_one)
+        attacks.append(attack_two)
     
     if his_level == 3:
         hp = 45
@@ -69,10 +69,19 @@ def enemy_stats():
         hp_defence.append(defence)
         attack_one = 12
         attack_two = 8
-        attacks.append(attack_1)
-        attacks.append(attack_2)
+        attacks.append(attack_one)
+        attacks.append(attack_two)
+    return attacks, hp_defence
 
 def player_game():
+    ability = 5
+    choice = input("What Would you like to do?\nTo choose attack type'attack'\nTo use ability type'ability'\nTo run type'run'")
+    choice.lower()
+    if(choice == 'attack'):
+        attack_choice = input("To choose a powerfull attack that is affected by defence type'power'\nTo choose a less is not affected by defence type'less power'")
+        attack_choice.lower()
+        if (attack_choice == 'power'):
+            
     
         
         
