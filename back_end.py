@@ -3,7 +3,7 @@ import random
 def player_stats():
     hp_defence = []
     player_attacks=[]
-    my_level=int(input("which level of difficulty do you want?\nfor easy type 1\nfor medium type 2\nfor hard type 3"))
+    my_level=int(input("which level of difficulty to fuck Aviv do you want?\nfor easy type 1\nfor medium type 2\nfor hard type 3"))
     #while my_level != type(int):
         #player_stats()
     if my_level == 1:
@@ -46,7 +46,7 @@ def player_stats():
 def enemy_stats():
     hp_defence = []
     enemy_attacks=[]
-    his_level=int(input("which level of difficulty do you want your enemy to be?\nfor easy type 1\nfor medium type 2\nfor hard type 3"))
+    his_level=int(input("which level of difficulty fucking MayaG do you want your enemy to be?\nfor easy type 1\nfor medium type 2\nfor hard type 3"))
     #while his_level != type(int):
         #player_stats()
     if his_level == 1:
@@ -86,31 +86,48 @@ def enemy_stats():
         enemy_attacks.append(ability_enemy)
     return enemy_attacks, hp_defence
 
-def player_game(player_hp_defence, player_attacks):
+def player_game(player_hp_defence, player_attacks,enemy_turn,enemy_hp_defence):
 ##    turn=( , )
-    
+    if enemy_turn[0] == 'ability':
+        player_hp_defence[1] -= enemy_turn[1]
+        print(player_hp_defence[1])
+    elif enemy_turn[0] == 'attack':
+        player_hp_defence[0] -= enemy_turn[1]
+        print(player_hp_defence[0])
+    else:
+        quit()
     choice = input("What Would you like to do?\nTo choose attack type'attack'\nTo use ability type'ability'\nTo run type'run'")
     choice.lower()
     if(choice == 'attack'):
-        attack_choice = input("To choose a powerfull attack that is affected by defence type'power'\nTo choose a less is not affected by defence type'less power'")
+        attack_choice = input("To choose a powerfull attack that is affected by defence type'power'\nTo choose a less is not affected by defence type'less power'\n")
         attack_choice.lower()
-        if attack_choice == 'power':
+        print(attack_choice)
+        if attack_choice == 'power' or attack_turn == 'power ':
             player_turn = "attack power",player_attacks[0]
-        if(attack_choice =='less power'):
+        elif(attack_choice =='less power'):
             player_turn = "attack less power" , player_attacks[1]
         else:
             print("Try agian")
             player_game(player_hp_defence, player_attacks)
-    if choice == 'ability':
+    elif choice == 'ability':
         player_turn = "ability" , player_attacks[2]
+    elif(choice == 'run'):
+        exit()
     else:
         print("Try agian")
-        player_game(player_hp_defence, player_attacks)
-    if(choice == 'run'):
-        exit()
+        player_game(player_hp_defence, player_attacks,enemy_turn,enemy_hp_defence)
+    
 
 
-def enemy_game(player_hp_defence,enemy_attacks):
+def enemy_game(player_hp_defence,enemy_attacks,player_turn):
+    if player_turn[0] == 'ability':
+        enemy_hp_defence[1] -= player_turn[1]
+        print(enemy_hp_defence[1])
+    elif player_turn[0] == 'attack':
+        enemy_hp_defence[0] -= player_turn[1]
+        print(enemy_hp_defence[0])
+    else:
+        quit()
     if (changing_def >=  player_hp_defence[1]/2):
         rand_abi_latt = random.randint(1,2)
         if rand_abi_latt == 1:
@@ -118,9 +135,9 @@ def enemy_game(player_hp_defence,enemy_attacks):
         if rand_abi_latt == 2:
             enemy_turn_be = 'attack less power', enemy_attacks[1]
     else:
-        enemy_turn_af = 'power attack' , enemy_attacks[0]
-            
-        
+        enemy_turn_be = 'power attack' , enemy_attacks[0]
+    
+    return enemy_turn_be
         
         
 
@@ -129,12 +146,16 @@ def enemy_game(player_hp_defence,enemy_attacks):
 #1/3 chance that the same move will not work for player
     
 def main():
-    
+    enemy_turn  = []
     enemy_hp_defence ,enemy_attacks =  enemy_stats()
     player_hp_defence, player_attacks = player_stats()
-    player_game(player_hp_defence, player_attacks)
+    player_game(player_hp_defence, player_attacks,enemy_turn,enemy_hp_defence)
     global changing_def
     changing_def = player_hp_defence[1]
+    while player_hp_defence[0] >0:
+        player_turn = player_game(player_hp_defence, player_attacks,enemy_turn,enemy_hp_defence)
+        enemy_turn = enemy_game(player_hp_defence,enemy_attacks,player_turn)
+        
 
             
             
