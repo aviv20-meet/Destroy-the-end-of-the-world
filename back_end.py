@@ -39,7 +39,7 @@ def player_stats():
         attacks.append(attack_2)
         ability_player = 5
         attacks.append(ability_player)
-
+    return attacks, hp_defence
 def enemy_stats():
     hp_defence = []
     attacks=[]
@@ -83,7 +83,7 @@ def enemy_stats():
         attacks.append(ability_enemy)
     return attacks, hp_defence
 
-def player_game():
+def player_game(player_hp_defence, player_attacks):
     turn=( , )
     
     choice = input("What Would you like to do?\nTo choose attack type'attack'\nTo use ability type'ability'\nTo run type'run'")
@@ -112,7 +112,10 @@ def enemy_game():
     
 #1/3 chance that the same move will not work for player
     
-            
+main():
+    enemy_hp_defence ,enemy_attacks =  enemy_stats()
+    player_hp_defence, player_attacks = player_stats()
+    player_game
 
             
             
