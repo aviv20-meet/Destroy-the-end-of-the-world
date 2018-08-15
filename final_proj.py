@@ -1,5 +1,6 @@
 import turtle
 import time
+turtle.register_shape('bg.gif')
 turtle.bgpic("bg.gif")
 lines = turtle.clone()
 lines.penup()
