@@ -1,5 +1,6 @@
 import turtle
 import time
+turtle.tracer(1,0)
 turtle.register_shape('bg.gif')
 turtle.bgpic("bg.gif")
 lines = turtle.clone()
@@ -51,9 +52,21 @@ enemy.penup()
 clairdan.goto(-200,40)
 enemy.goto(200,-80)
 pattack.goto(-365,-250)
-ability.goto(70,-250)
-lattack.goto(-150,-250)
+ability.goto(120,-250)
+lattack.goto(-120,-250)
 run.goto(365,-250)
+
+#def lesser_attack():
+    
+
+
+
+
+    
+
+
+
+
 
 
 
