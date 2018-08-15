@@ -55,9 +55,42 @@ pattack.goto(-365,-250)
 ability.goto(120,-250)
 lattack.goto(-120,-250)
 run.goto(365,-250)
+enemy_health = turtle.clone()
+player_health = turtle.clone()
+enemy_defence = turtle.clone()
+player_defence = turtle.clone()
 
-#def lesser_attack():
-    
+enemy_health.penup()
+enemy_health.color('white')
+enemy_health.goto(180,25)
+enemy_health.pendown()
+enemy_health.write("hp", font= ("impact" ,20))
+enemy_health.hideturtle()
+
+
+enemy_defence.penup()
+enemy_defence.color('white')
+enemy_defence.goto(180,-5)
+enemy_defence.pendown()
+enemy_defence.write("defence", font= ("impact" ,20))
+enemy_defence.hideturtle()
+
+
+
+player_health.penup()
+player_health.color('white')
+player_health.goto(-230,160)
+player_health.pendown()
+player_health.write("hp", font= ("impact" ,20))
+player_health.hideturtle()
+
+
+player_defence.penup()
+player_defence.color('white')
+player_defence.goto(-230,130)
+player_defence.pendown()
+player_defence.write("defence", font= ("impact" ,20))
+player_defence.hideturtle()
 
 
 
